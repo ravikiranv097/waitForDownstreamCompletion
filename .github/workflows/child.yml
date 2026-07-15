@@ -1,0 +1,24 @@
+name: Child Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  child-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start Child
+        run: |
+          echo "Child workflow started"
+
+      - name: Wait for 15 seconds
+        run: sleep 15
+
+      - name: Finish Child
+        run: |
+          echo "Child workflow completed"
+
+      # Uncomment this to test failure
+      # - name: Fail Child
+      #   run: exit 1
