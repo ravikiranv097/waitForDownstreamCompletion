@@ -20,5 +20,5 @@ jobs:
           echo "Child workflow completed"
 
       # Uncomment this to test failure
-      - name: Fail Child
-        run: exit 1
+      # - name: Fail Child
+      #   run: exit 1
