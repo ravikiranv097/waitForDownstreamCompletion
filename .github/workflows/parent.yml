@@ -1,0 +1,28 @@
+name: Parent Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        run: |
+          echo "Build started"
+          sleep 5
+          echo "Build completed"
+
+  call-child:
+    needs: build
+    uses: ./.github/workflows/child.yml
+
+  final:
+    needs: call-child
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Final Step
+        run: |
+          echo "Parent continued after child completed"
